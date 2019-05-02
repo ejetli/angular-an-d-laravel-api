@@ -1,0 +1,36 @@
+ <div><h1>{{title}}</h1></div>
+<div style="background:#fff; padding: 24px; min-height: 280px;">
+	<nz-layout>
+      <nz-content> 
+		<a nz-button nzType="primary" routerLink=""> Add Program </a><br>
+      	<nz-table #basicTable #borderedTable nzBordered [nzData]="programs">
+	      <thead>
+	        <tr>
+	          <th>Name</th>
+	          <th>Description</th>
+	          <th>Level</th>
+	          <th>Status</th>
+	          <th>Action</th>
+	        </tr>
+	      </thead>
+	      <tbody>
+	        <tr *ngFor="let program of programs">
+	          <td>{{ program.name }}</td>
+	          <td>{{ program.description }}</td>
+	          <td>{{ program.level }}</td>
+	          <td>{{ program.status}} </td>
+	          <td><a nz-button nzType="primary" [routerLink]="['/edit', program.id]"  [nzSize]="size" (click)="putProgram(program.id)"><i nz-icon nzType="edit" nzTheme="outline"></i> Edit</a>
+	           <a nz-button nzType="danger"  [nzSize]="size" (click)="deleteProgram(program.id)"> <i nz-icon nzType="delete" nzTheme="outline"></i> Delete</a></td>
+	        </tr>
+	      </tbody>
+	    </nz-table>
+	</nz-content>
+    </nz-layout>    
+  <!--   <div nz-row>
+      <div nz-col nzSpan="12" nzOffset="6">
+        
+      </div>
+    </div>
+ -->
+</div>
+      
